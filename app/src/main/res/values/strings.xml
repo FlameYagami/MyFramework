@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">GC-DSS</string>
+
+    <!-- 基础 -->
+    <string name="ok">确定</string>
+    <string name="cancel">取消</string>
+    <string name="submit">提交</string>
+
+    <!-- SettingActivity -->
+    <string name="setting_about_title">设置</string>
+    <string name="setting_personal">个人设置</string>
+    <string name="setting_push">推送设置</string>
+    <string name="setting_suggest">意见反馈</string>
+    <string name="setting_about">关于</string>
+
+    <!-- PersonalSettingActivity -->
+    <string name="personal_about_title">个人设置</string>
+    <string name="personal_password">密码修改</string>
+
+    <!-- AboutActivity -->
+    <string name="about_title">关于</string>
+    <string name="about_version">版本号</string>
+    <string name="about_thank">特别鸣谢</string>
+    <string name="about_check_for_updates">检查更新</string>
+
+    <!-- PushSettingActivity -->
+    <string name="push_about_title">推送设置</string>
+
+    <!-- SuggestActivity -->
+    <string name="suggest_about_title">意见反馈</string>
+    <string name="suggest_hint">献上您的宝贵意见</string>
+    <string name="suggest_problem_and_suggest">问题和建议</string>
+
+    <!-- PasswordActivity -->
+    <string name="password_about_title">密码修改</string>
+    <string name="password_old">原密码</string>
+    <string name="password_new">新密码</string>
+    <string name="password_confirm">确认密码</string>
+    <string name="password_old_hint">请输入新密码</string>
+    <string name="password_new_hint">请输入原密码</string>
+    <string name="password_confirm_hint">请输入确认密码</string>
+</resources>
