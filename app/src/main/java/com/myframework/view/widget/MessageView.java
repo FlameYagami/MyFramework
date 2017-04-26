@@ -7,9 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.myframework.R;
-import com.myframework.utils.SpUtil;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 
 /**
@@ -18,32 +18,28 @@ import com.myframework.utils.SpUtil;
 
 public class MessageView extends LinearLayout
 {
-    TextView tvTitle;
-    TextView tvMessage;
+    @BindView(R.id.tv_key)
+    TextView tvKey;
+    @BindView(R.id.tv_value)
+    TextView tvValue;
 
     public MessageView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
         View view = View.inflate(context, R.layout.widget_message, null);
-        view.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         addView(view);
-        tvTitle = (TextView)view.findViewById(R.id.title);
-        tvMessage = (TextView)view.findViewById(R.id.message);
+        ButterKnife.bind(this, view);
 
-        TypedArray typedArray  = context.obtainStyledAttributes(attrs, R.styleable.MessageView);
-        String     titleText   = typedArray.getString(R.styleable.MessageView_title_text);
-        String     messageText = typedArray.getString(R.styleable.MessageView_message_text);
-        tvTitle.setText(titleText);
-        tvMessage.setText(messageText);
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.MessageView);
+        String     keyText    = typedArray.getString(R.styleable.MessageView_title_text);
+        String     valueText  = typedArray.getString(R.styleable.MessageView_message_text);
         typedArray.recycle();
+        tvKey.setText(keyText);
+        tvValue.setText(valueText);
+        view.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
     }
 
-    public void setDefaultSp(String key, String value) {
-        SpUtil.getInstances().putString(key, value);
-        tvMessage.setText(value);
-    }
-
-    public void setMessage(String message) {
-        tvMessage.setText(message);
+    public void setValue(String message) {
+        tvValue.setText(message);
     }
 }

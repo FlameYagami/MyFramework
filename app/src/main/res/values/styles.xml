@@ -6,15 +6,15 @@
         <item name="android:layout_width">match_parent</item>
     </style>
 
-    <style name="layout_header">
+    <style name="layout_headerbar">
         <item name="android:background">@color/colorPrimary</item>
         <item name="android:id">@id/view_header</item>
         <item name="android:layout_height">45dp</item>
         <item name="android:layout_width">match_parent</item>
     </style>
 
-    <style name="layout_shadow">
-        <item name="android:background">@drawable/shadow_header_green</item>
+    <style name="layout_shadowbar">
+        <item name="android:background">@drawable/shadow_header</item>
         <item name="android:layout_height">2dp</item>
         <item name="android:layout_width">match_parent</item>
     </style>
@@ -33,14 +33,14 @@
         <item name="android:layout_height">45dp</item>
         <item name="android:layout_width">45dp</item>
         <item name="android:padding">10dp</item>
-        <item name="android:src">@drawable/img_back</item>
+        <item name="android:src">@drawable/ic_back</item>
     </style>
 
     <style name="view_header_menu">
         <item name="android:layout_height">45dp</item>
         <item name="android:layout_width">45dp</item>
         <item name="android:padding">10dp</item>
-        <item name="android:src">@drawable/img_menu</item>
+        <item name="android:src">@drawable/ic_menu</item>
     </style>
 
     <style name="recyclerview">

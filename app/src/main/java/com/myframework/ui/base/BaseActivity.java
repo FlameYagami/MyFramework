@@ -6,6 +6,7 @@ import android.support.design.widget.Snackbar;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
+
 import com.myframework.config.MyApp;
 import com.myframework.utils.AppManager;
 import com.myframework.utils.DisplayUtils;
@@ -13,6 +14,7 @@ import com.myframework.utils.RxBus;
 import com.myframework.utils.StatusBarUtils;
 import com.myframework.view.dialog.DialogLoading;
 import com.myframework.view.widget.ToastView;
+
 import me.imid.swipebacklayout.lib.SwipeBackLayout;
 
 public abstract class BaseActivity extends SwipeBackActivity
@@ -69,7 +71,6 @@ public abstract class BaseActivity extends SwipeBackActivity
     public void onBackPressed() {
         DialogLoading.hideDialog();
         mSwipeBackLayout.scrollToFinishActivity();
-
     }
 
     @Override

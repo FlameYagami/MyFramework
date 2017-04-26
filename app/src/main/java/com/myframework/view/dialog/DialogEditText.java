@@ -6,9 +6,12 @@ import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.myframework.R;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by 八神火焰 on 2016/12/22.
@@ -16,7 +19,8 @@ import com.myframework.R;
 
 public class DialogEditText extends AlertDialog
 {
-    private EditText txtContent;
+    @BindView(R.id.editText)
+    EditText txtContent;
 
     private OnButtonClick onButtonClick;
 
@@ -28,9 +32,7 @@ public class DialogEditText extends AlertDialog
     public DialogEditText(@NonNull Context context, String title, String content, String hint, OnButtonClick mOnButtonClick) {
         super(context);
         View view = View.inflate(context, R.layout.dialog_edittext, null);
-        txtContent = (EditText)view.findViewById(R.id.editText);
-        TextView tvCancel = (TextView)view.findViewById(R.id.tv_cancel);
-        TextView tvOk     = (TextView)view.findViewById(R.id.tv_ok);
+        ButterKnife.bind(this, view);
 
         setView(view);
         setTitle(title);
@@ -38,12 +40,18 @@ public class DialogEditText extends AlertDialog
         txtContent.setText(content);
         txtContent.setSelection(txtContent.getText().length());
         this.onButtonClick = mOnButtonClick;
-        tvCancel.setOnClickListener(v -> dismiss());
-        tvOk.setOnClickListener(v -> {
-            String text = txtContent.getText().toString().trim();
-            if (!TextUtils.isEmpty(text)) {
-                this.onButtonClick.getText(this, text);
-            }
-        });
+    }
+
+    @OnClick(R.id.tv_cancel)
+    public void onCancel_Click() {
+        dismiss();
+    }
+
+    @OnClick(R.id.tv_ok)
+    public void onOk_Click() {
+        String text = txtContent.getText().toString().trim();
+        if (!TextUtils.isEmpty(text)) {
+            this.onButtonClick.getText(this, text);
+        }
     }
 }

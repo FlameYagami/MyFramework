@@ -15,7 +15,7 @@
     <color name="button_blue_pressed">#005ef9</color>
 
     <!-- 白色 -->
-    <color name="white">#FFFFFFFF</color>
+    <color name="white">#FFFFFF</color>
 
     <!-- 黑色 -->
     <color name="black">#000000</color>
