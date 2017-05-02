@@ -16,39 +16,12 @@
         android:layout_height="match_parent"
         tools:context="com.zx.ui.main.MainActivity">
 
-        <RelativeLayout
+        <com.myframework.view.widget.AppBarView
+            android:id="@+id/viewAppBar"
+            app:navigation_src="@mipmap/ic_icon"
+            app:title_text="@string/app_name"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <LinearLayout
-                android:id="@+id/view_header"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <View style="@style/layout_statusbar"/>
-
-                <RelativeLayout style="@style/layout_headerbar">
-
-                    <ImageView
-                        android:id="@+id/img_icon"
-                        android:layout_width="45dp"
-                        android:layout_height="45dp"
-                        android:layout_alignParentBottom="true"
-                        android:padding="10dp"
-                        android:src="@drawable/ic_icon"/>
-
-                    <TextView
-                        android:id="@+id/tv_title"
-                        style="@style/view_header_title"
-                        android:layout_toEndOf="@+id/img_icon"
-                        android:layout_toRightOf="@+id/img_icon"
-                        android:text="@string/app_name"/>
-
-                </RelativeLayout>
-            </LinearLayout>
-
-        </RelativeLayout>
+            android:layout_height="wrap_content"/>
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab_search"

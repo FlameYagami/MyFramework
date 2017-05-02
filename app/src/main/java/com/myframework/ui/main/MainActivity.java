@@ -6,26 +6,25 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.MenuItem;
-import android.widget.ImageView;
 
 import com.myframework.R;
 import com.myframework.ui.base.BaseActivity;
 import com.myframework.utils.AppManager;
+import com.myframework.view.widget.AppBarView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener
+public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener, AppBarView.NavigationClickListener
 {
-    @BindView(R.id.img_icon)
-    ImageView         imgIcon;
+    @BindView(R.id.viewAppBar)
+    AppBarView        viewAppBar;
     @BindView(R.id.view_drawer)
     DrawerLayout      viewDrawer;
     @BindView(R.id.view_content)
     CoordinatorLayout viewContent;
     @BindView(R.id.nav_view)
     NavigationView    navView;
-
 
     private static final String TAG       = MainActivity.class.getSimpleName();
     private              long   firstTime = 0;
@@ -41,7 +40,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         // 主界面不可调用SwipeBack
         setSwipeBackEnable(false);
 
-        imgIcon.setOnClickListener(view -> viewDrawer.openDrawer(GravityCompat.START));
+        viewAppBar.setNavigationClickListener(this);
         navView.setNavigationItemSelectedListener(this);
     }
 
@@ -68,5 +67,10 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         }
         viewDrawer.closeDrawer(GravityCompat.START);
         return false;
+    }
+
+    @Override
+    public void onNavigationClick() {
+        viewDrawer.openDrawer(GravityCompat.START);
     }
 }
