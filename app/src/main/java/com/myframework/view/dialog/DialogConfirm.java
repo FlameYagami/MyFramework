@@ -1,12 +1,12 @@
 package com.myframework.view.dialog;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.support.v7.app.AlertDialog;
 
 public class DialogConfirm
 {
@@ -14,24 +14,30 @@ public class DialogConfirm
     public         Context context;
     private        int     dialogResult;
 
-    private DialogConfirm(Context context, String title) {
-        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(context);
-        dialogBuilder.setPositiveButton("确定", new DialogButtonOnClick(1));
-        dialogBuilder.setNegativeButton("取消", new DialogButtonOnClick(0));
-        dialogBuilder.setOnCancelListener(new DialogCancelOnClick());
-        dialogBuilder.setTitle(title).create().show();
+    private DialogConfirm(Context context, String title, String message) {
+        new AlertDialog.Builder(context)
+                .setPositiveButton("确定", new DialogButtonOnClick(1))
+                .setNegativeButton("取消", new DialogButtonOnClick(0))
+                .setOnCancelListener(new DialogCancelOnClick())
+                .setTitle(title)
+                .setMessage(message)
+                .create().show();
         try {
             Looper.loop();
         } catch (Exception ignored) {
         }
     }
 
-    public static boolean show(Context context, String title) {
-        handler = new MyHandler();
-        return new DialogConfirm(context, title).getResult() == 1;
+    public static boolean show(Context context, String message) {
+        return show(context, "提示", message);
     }
 
-    public int getResult() {
+    public static boolean show(Context context, String title, String message) {
+        handler = new MyHandler();
+        return new DialogConfirm(context, title, message).getResult() == 1;
+    }
+
+    private int getResult() {
         return dialogResult;
     }
 
