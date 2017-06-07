@@ -14,14 +14,29 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.zx.ui.main.MainActivity">
+        tools:mContext="com.zx.ui.main.MainActivity">
 
-        <com.myframework.view.widget.AppBarView
-            android:id="@+id/viewAppBar"
-            app:navigation_src="@mipmap/ic_icon"
-            app:title_text="@string/app_name"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.myframework.view.widget.AppBarView
+                android:id="@+id/viewAppBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:navigation_src="@mipmap/ic_icon"
+                app:title_text="@string/app_name"/>
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/btn_test"
+                style="@style/Base.Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/test"/>
+
+        </LinearLayout>
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab_search"

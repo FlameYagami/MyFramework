@@ -1,20 +1,20 @@
 package com.myframework.api;
 
-import rx.functions.Func1;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.functions.Function;
 
 /**
  * Created by 时空管理局 on 2016/8/4.
  */
-class HttpFunc<T> implements Func1<HttpResult<T>, T>
+class HttpFunc<T> implements Function<HttpResult<T>, T>
 {
+
     @Override
-    public T call(HttpResult<T> httpResult)
-    {
-        if (200 != httpResult.getCode())
-        {
-            throw new RuntimeException(httpResult.getCode() + httpResult.getReason());
+    public T apply(@NonNull HttpResult<T> tHttpResult) throws Exception {
+        if (200 != tHttpResult.getCode()) {
+            throw new RuntimeException(tHttpResult.getCode() + tHttpResult.getReason());
         }
-        return httpResult.getResult();
+        return tHttpResult.getResult();
     }
 }
 

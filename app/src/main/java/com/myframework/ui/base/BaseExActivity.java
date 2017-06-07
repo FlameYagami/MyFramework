@@ -7,17 +7,21 @@ import android.support.design.widget.Snackbar;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
+
 import com.myframework.config.MyApp;
 import com.myframework.utils.AppManager;
 import com.myframework.utils.DisplayUtils;
-import com.myframework.utils.RxBus;
 import com.myframework.utils.StatusBarUtils;
-import com.myframework.view.dialog.DialogLoading;
+import com.myframework.view.dialog.DialogLoadingUtils;
 import com.myframework.view.widget.ToastView;
+
+import io.reactivex.disposables.Disposable;
 
 
 public abstract class BaseExActivity extends Activity
 {
+    protected Disposable disposable;
+
     protected void showToast(String message) {
         runOnUiThread(() -> ToastView.make(MyApp.context, message, Toast.LENGTH_SHORT).show());
     }
@@ -26,12 +30,12 @@ public abstract class BaseExActivity extends Activity
         Snackbar.make(view, message, Snackbar.LENGTH_SHORT).show();
     }
 
-    protected void showDialog(String message) {
-        DialogLoading.showDialog(this, message, false);
+    protected void showDialog() {
+        DialogLoadingUtils.show(this);
     }
 
     protected void hideDialog() {
-        DialogLoading.hideDialog();
+        DialogLoadingUtils.hide();
     }
 
     public abstract int getLayoutId();
@@ -63,19 +67,17 @@ public abstract class BaseExActivity extends Activity
 
     @Override
     public void onBackPressed() {
+        if (disposable != null){
+            disposable.dispose();
+            disposable = null;
+        }
+        DialogLoadingUtils.hide();
         super.onBackPressed();
-        DialogLoading.hideDialog();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        RxBus.getInstance().unSubscribe(this);
         AppManager.getInstances().finishActivity(this);
-    }
-
-    @Override
-    public void finish() {
-        super.finish();
     }
 }

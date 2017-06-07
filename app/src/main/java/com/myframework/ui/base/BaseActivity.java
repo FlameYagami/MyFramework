@@ -10,15 +10,17 @@ import android.widget.Toast;
 import com.myframework.config.MyApp;
 import com.myframework.utils.AppManager;
 import com.myframework.utils.DisplayUtils;
-import com.myframework.utils.RxBus;
 import com.myframework.utils.StatusBarUtils;
-import com.myframework.view.dialog.DialogLoading;
+import com.myframework.view.dialog.DialogLoadingUtils;
 import com.myframework.view.widget.ToastView;
 
+import io.reactivex.disposables.Disposable;
 import me.imid.swipebacklayout.lib.SwipeBackLayout;
 
 public abstract class BaseActivity extends SwipeBackActivity
 {
+    protected Disposable disposable;
+
     protected SwipeBackLayout mSwipeBackLayout;
 
     protected void showToast(String message) {
@@ -29,12 +31,12 @@ public abstract class BaseActivity extends SwipeBackActivity
         Snackbar.make(view, message, Snackbar.LENGTH_SHORT).show();
     }
 
-    protected void showDialog(String message) {
-        DialogLoading.showDialog(this, message, false);
+    protected void showDialog() {
+        DialogLoadingUtils.show(this);
     }
 
     protected void hideDialog() {
-        DialogLoading.hideDialog();
+        DialogLoadingUtils.hide();
     }
 
     public abstract int getLayoutId();
@@ -69,14 +71,17 @@ public abstract class BaseActivity extends SwipeBackActivity
 
     @Override
     public void onBackPressed() {
-        DialogLoading.hideDialog();
+        if (disposable != null){
+            disposable.dispose();
+            disposable = null;
+        }
+        DialogLoadingUtils.hide();
         mSwipeBackLayout.scrollToFinishActivity();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        RxBus.getInstance().unSubscribe(this);
         AppManager.getInstances().finishActivity(this);
     }
 }
