@@ -2,12 +2,10 @@ package com.myframework.view.dialog;
 
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
-
 import com.myframework.R;
-
 import butterknife.BindString;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -20,17 +18,12 @@ public class DialogLoading extends AlertDialog
 {
     @BindView(R.id.tv_message)
     TextView tvMessage;
-    @BindString(R.string.please_waiting)
+    @BindString(R.string.waiting)
     String   pleaseWaiting;
 
     protected DialogLoading(Context context) {
         super(context);
-        initView(context, pleaseWaiting, null);
-    }
-
-    protected DialogLoading(Context context, DialogInterface.OnCancelListener onCancelListener) {
-        super(context);
-        initView(context, pleaseWaiting, onCancelListener);
+        initView(context, null, null);
     }
 
     protected DialogLoading(Context context, CharSequence message) {
@@ -38,22 +31,28 @@ public class DialogLoading extends AlertDialog
         initView(context, message, null);
     }
 
-    protected DialogLoading(Context context, CharSequence message, DialogInterface.OnCancelListener onCancelListener) {
+    protected DialogLoading(Context context, OnKeyListener onKeyListener) {
         super(context);
-        initView(context, message, onCancelListener);
+        initView(context, null, onKeyListener);
     }
 
-    private void initView(Context context, CharSequence message, DialogInterface.OnCancelListener onCancelListener) {
+    protected DialogLoading(Context context, CharSequence message, OnKeyListener onKeyListener) {
+        super(context);
+        initView(context, message, onKeyListener);
+    }
+
+    private void initView(Context context, CharSequence message, OnKeyListener onKeyListener) {
         View view = View.inflate(context, R.layout.dialog_loading, null);
         ButterKnife.bind(this, view);
         setView(view);
-        tvMessage.setText(message);
-        if (onCancelListener != null) {
+        tvMessage.setText(TextUtils.isEmpty(message) ? pleaseWaiting : message);
+        setCanceledOnTouchOutside(false);
+        if (onKeyListener != null) {
             setCancelable(true);
-            setOnCancelListener(onCancelListener);
+            setOnKeyListener(onKeyListener);
         } else {
             setCancelable(false);
-            setOnCancelListener(null);
+            setOnKeyListener(null);
         }
     }
 }

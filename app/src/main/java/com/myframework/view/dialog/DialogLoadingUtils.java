@@ -23,9 +23,13 @@ public class DialogLoadingUtils
         show();
     }
 
-    public static void show(Context context, DialogInterface.OnCancelListener onCancelListener) {
-        dialog = new DialogLoading(context, onCancelListener);
-        dialog.setCancelable(true);
+    public static void show(Context context, DialogInterface.OnKeyListener onKeyListener) {
+        dialog = new DialogLoading(context, onKeyListener);
+        show();
+    }
+
+    public static void show(Context context, String message, DialogInterface.OnKeyListener onCancelListener) {
+        dialog = new DialogLoading(context, message, onCancelListener);
         show();
     }
 

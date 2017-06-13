@@ -3,15 +3,14 @@ package com.myframework.view.dialog;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.AppCompatButton;
+import android.support.v7.widget.AppCompatEditText;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.EditText;
-
 import com.myframework.R;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
+
 
 /**
  * Created by 八神火焰 on 2016/12/22.
@@ -20,7 +19,11 @@ import butterknife.OnClick;
 public class DialogEditText extends AlertDialog
 {
     @BindView(R.id.editText)
-    EditText txtContent;
+    AppCompatEditText editText;
+    @BindView(R.id.btn_cancel)
+    AppCompatButton   btnCancel;
+    @BindView(R.id.btn_ok)
+    AppCompatButton   btnOk;
 
     private OnButtonClick onButtonClick;
 
@@ -36,22 +39,16 @@ public class DialogEditText extends AlertDialog
 
         setView(view);
         setTitle(title);
-        txtContent.setHint(hint);
-        txtContent.setText(content);
-        txtContent.setSelection(txtContent.getText().length());
+        editText.setHint(hint);
+        editText.setText(content);
+        editText.setSelection(editText.getText().length());
         this.onButtonClick = mOnButtonClick;
-    }
-
-    @OnClick(R.id.tv_cancel)
-    public void onCancel_Click() {
-        dismiss();
-    }
-
-    @OnClick(R.id.tv_ok)
-    public void onOk_Click() {
-        String text = txtContent.getText().toString().trim();
-        if (!TextUtils.isEmpty(text)) {
-            this.onButtonClick.getText(this, text);
-        }
+        btnCancel.setOnClickListener(v -> dismiss());
+        btnOk.setOnClickListener(v -> {
+            String text = editText.getText().toString().trim();
+            if (!TextUtils.isEmpty(text)) {
+                this.onButtonClick.getText(this, text);
+            }
+        });
     }
 }
