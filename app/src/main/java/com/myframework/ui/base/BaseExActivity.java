@@ -15,13 +15,9 @@ import com.myframework.utils.StatusBarUtils;
 import com.myframework.view.dialog.DialogLoadingUtils;
 import com.myframework.view.widget.ToastView;
 
-import io.reactivex.disposables.Disposable;
-
 
 public abstract class BaseExActivity extends Activity
 {
-    protected Disposable disposable;
-
     protected void showToast(String message) {
         runOnUiThread(() -> ToastView.make(MyApp.context, message, Toast.LENGTH_SHORT).show());
     }
@@ -67,11 +63,6 @@ public abstract class BaseExActivity extends Activity
 
     @Override
     public void onBackPressed() {
-        if (disposable != null){
-            disposable.dispose();
-            disposable = null;
-        }
-        DialogLoadingUtils.hide();
         super.onBackPressed();
     }
 

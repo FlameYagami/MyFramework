@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.myframework.bean.LoginBean;
 import com.myframework.bean.LoginHttpBean;
+import com.myframework.utils.rxjava.ProgressSubscriber;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -116,7 +117,7 @@ public class RequestApi
                 .onLogin(account)
                 .subscribeOn(Schedulers.newThread())
                 .map(new HttpFunc<>()))
-                .transform();
+                .apply();
     }
 
     /**

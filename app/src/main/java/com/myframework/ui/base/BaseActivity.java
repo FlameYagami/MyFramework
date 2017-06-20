@@ -14,13 +14,10 @@ import com.myframework.utils.StatusBarUtils;
 import com.myframework.view.dialog.DialogLoadingUtils;
 import com.myframework.view.widget.ToastView;
 
-import io.reactivex.disposables.Disposable;
 import me.imid.swipebacklayout.lib.SwipeBackLayout;
 
 public abstract class BaseActivity extends SwipeBackActivity
 {
-    protected Disposable disposable;
-
     protected SwipeBackLayout mSwipeBackLayout;
 
     protected void showToast(String message) {
@@ -71,11 +68,6 @@ public abstract class BaseActivity extends SwipeBackActivity
 
     @Override
     public void onBackPressed() {
-        if (disposable != null){
-            disposable.dispose();
-            disposable = null;
-        }
-        DialogLoadingUtils.hide();
         mSwipeBackLayout.scrollToFinishActivity();
     }
 

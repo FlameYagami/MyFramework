@@ -15,7 +15,6 @@ import com.myframework.view.widget.ToastView;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-import io.reactivex.disposables.Disposable;
 
 /**
  * Created by 八神火焰 on 2017/5/3.
@@ -25,9 +24,6 @@ public abstract class BaseFragment extends Fragment
 {
     // ButterKnife解绑
     protected Unbinder unbinder;
-
-    // RxJava释放观察者
-    protected Disposable disposable;
 
     // 是否初始化控件
     protected boolean isInitView;
@@ -92,20 +88,9 @@ public abstract class BaseFragment extends Fragment
         isViewVisible = false;
     }
 
-    /**
-     * 释放请求对象
-     */
-    protected void dispose() {
-        if (disposable != null) {
-            disposable.dispose();
-            disposable = null;
-        }
-    }
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        dispose();
         unbinder.unbind();
         isInitView = false;
     }
