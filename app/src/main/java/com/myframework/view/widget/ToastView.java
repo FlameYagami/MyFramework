@@ -1,24 +1,28 @@
 package com.myframework.view.widget;
 
 import android.content.Context;
+import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.myframework.R;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * Created by 八神火焰 on 2017/3/1.
  */
 public class ToastView
 {
-    private TextView textView;
+    @BindView(R.id.textView)
+    AppCompatTextView textView;
 
     private Toast mToast;
 
     private ToastView(Context context, CharSequence text, int duration) {
         View view = View.inflate(context, R.layout.widget_toast, null);
-        textView = (TextView)view.findViewById(R.id.textView);
+        ButterKnife.bind(this, view);
 
         textView.setText(text);
         mToast = new Toast(context);

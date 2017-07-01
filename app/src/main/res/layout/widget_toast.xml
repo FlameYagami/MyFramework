@@ -9,7 +9,7 @@
              android:paddingRight="30dp"
              android:paddingTop="8dp">
 
-    <TextView
+    <android.support.v7.widget.AppCompatTextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -2,13 +2,15 @@ package com.myframework.view.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.support.v7.widget.AppCompatImageView;
+import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
+
 import com.myframework.R;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -18,11 +20,11 @@ import butterknife.ButterKnife;
 public class SelectView extends LinearLayout
 {
     @BindView(R.id.tv_key)
-    TextView  tvKey;
+    AppCompatTextView  tvKey;
     @BindView(R.id.tv_value)
-    TextView  tvValue;
+    AppCompatTextView  tvValue;
     @BindView(R.id.img_right_arrow)
-    ImageView imgRightArrow;
+    AppCompatImageView imgRightArrow;
 
     public SelectView(Context context, AttributeSet attrs) {
         super(context, attrs);

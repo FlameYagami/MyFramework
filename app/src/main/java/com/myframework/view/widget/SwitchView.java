@@ -3,11 +3,11 @@ package com.myframework.view.widget;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.SwitchCompat;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.myframework.R;
 import com.myframework.utils.SpUtil;
@@ -23,9 +23,9 @@ import butterknife.OnClick;
 public class SwitchView extends LinearLayout
 {
     @BindView(R.id.switch_compat)
-    SwitchCompat switchCompat;
+    SwitchCompat      switchCompat;
     @BindView(R.id.tv_key)
-    TextView     textView;
+    AppCompatTextView textView;
 
     public SwitchView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);

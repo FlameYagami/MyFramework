@@ -2,15 +2,14 @@ package com.myframework.view.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import com.myframework.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
 
 /**
  * Created by 八神火焰 on 2017/1/12.
@@ -19,9 +18,9 @@ import butterknife.ButterKnife;
 public class MessageView extends LinearLayout
 {
     @BindView(R.id.tv_key)
-    TextView tvKey;
+    AppCompatTextView tvKey;
     @BindView(R.id.tv_value)
-    TextView tvValue;
+    AppCompatTextView tvValue;
 
     public MessageView(Context context, AttributeSet attrs) {
         super(context, attrs);

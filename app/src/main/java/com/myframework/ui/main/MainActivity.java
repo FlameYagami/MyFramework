@@ -5,7 +5,6 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.widget.AppCompatEditText;
 import android.view.MenuItem;
 
 import com.myframework.R;
@@ -26,8 +25,6 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     CoordinatorLayout viewContent;
     @BindView(R.id.nav_view)
     NavigationView    navView;
-    @BindView(R.id.txt_test)
-    AppCompatEditText txtTest;
 
     private static final String TAG       = MainActivity.class.getSimpleName();
     private              long   firstTime = 0;
@@ -42,7 +39,6 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         ButterKnife.bind(this);
         // 主界面不可调用SwipeBack
         setSwipeBackEnable(false);
-
         viewAppBar.setNavigationClickListener(this);
         navView.setNavigationItemSelectedListener(this);
     }
