@@ -11,18 +11,18 @@ import java.util.List;
 
 public interface BaseRecyclerViewListener
 {
-    interface OnItemClickListener
+    interface ItemClickListener
     {
-        void onItemClick(View view, List<?> data, int position);
+        void onClick(View view, List<?> data, int position);
     }
 
-    interface OnItemLongClickListener
+    interface ItemLongClickListener
     {
-        void onItemLongClick(View view, List<?> data, int position);
+        void onClick(View view, List<?> data, int position);
     }
 
-    interface OnItemTouchListener
+    interface ItemTouchListener
     {
-        void OnItemTouch(View view, MotionEvent motionEvent, List<?> data, int position);
+        void OnTouch(View view, MotionEvent motionEvent, List<?> data, int position);
     }
 }

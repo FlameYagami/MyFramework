@@ -51,7 +51,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             long lastTime = System.currentTimeMillis();
             long between  = lastTime - firstTime;
             if (between < 2000) {
-                AppManager.getInstances().AppExit(this);
+                AppManager.AppExit(this);
             } else {
                 firstTime = lastTime;
                 showSnackBar(viewContent, "再按一次退出应用");

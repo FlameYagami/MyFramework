@@ -9,6 +9,18 @@ import android.view.animation.TranslateAnimation;
 
 public class AnimationUtils
 {
+    // 默认动画时间:250毫秒
+    private static int DEFAULT_DURATION = 250;
+
+    /**
+     * 设置动画时间
+     *
+     * @param duration 动画时间(毫秒)
+     */
+    public static void setDuration(int duration) {
+        DEFAULT_DURATION = duration;
+    }
+
     /**
      * 从控件所在位置移动到控件的底部
      *
@@ -18,7 +30,7 @@ public class AnimationUtils
         TranslateAnimation mHiddenAction = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0.0f,
                 Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF,
                 0.0f, Animation.RELATIVE_TO_SELF, 1.0f);
-        mHiddenAction.setDuration(500);
+        mHiddenAction.setDuration(DEFAULT_DURATION);
         return mHiddenAction;
     }
 
@@ -31,7 +43,7 @@ public class AnimationUtils
         TranslateAnimation mHiddenAction = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0.0f,
                 Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF,
                 0.0f, Animation.RELATIVE_TO_SELF, -1.0f);
-        mHiddenAction.setDuration(500);
+        mHiddenAction.setDuration(DEFAULT_DURATION);
         return mHiddenAction;
     }
 
@@ -44,7 +56,7 @@ public class AnimationUtils
         TranslateAnimation mHiddenAction = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0.0f,
                 Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF,
                 1.0f, Animation.RELATIVE_TO_SELF, 0.0f);
-        mHiddenAction.setDuration(500);
+        mHiddenAction.setDuration(DEFAULT_DURATION);
         return mHiddenAction;
     }
 
@@ -58,7 +70,7 @@ public class AnimationUtils
         TranslateAnimation mHiddenAction = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0.0f,
                 Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF,
                 -1.0f, Animation.RELATIVE_TO_SELF, 0.0f);
-        mHiddenAction.setDuration(500);
+        mHiddenAction.setDuration(DEFAULT_DURATION);
         return mHiddenAction;
     }
 }

@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.myframework.R;
-import com.myframework.utils.SpUtil;
+import com.myframework.utils.SpUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -46,7 +46,7 @@ public class SwitchView extends LinearLayout
 
     public void setChecked(boolean isChecked) {
         switchCompat.setChecked(isChecked);
-        SpUtil.getInstances().putInt(getKey(), switchCompat.isChecked() ? 1 : 0);
+        SpUtils.getInstances().putInt(getKey(), switchCompat.isChecked() ? 1 : 0);
     }
 
     @OnClick(R.id.switch_compat)

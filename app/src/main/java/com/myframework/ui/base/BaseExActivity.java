@@ -36,9 +36,6 @@ public abstract class BaseExActivity extends Activity
 
     public abstract int getLayoutId();
 
-    /**
-     * 初始化控件以及装填数据
-     */
     public abstract void initViewAndData();
 
     @Override
@@ -47,12 +44,9 @@ public abstract class BaseExActivity extends Activity
         StatusBarUtils.enableTranslucentStatusBar(this);
         setContentView(getLayoutId());
         initViewAndData();
-        AppManager.getInstances().addActivity(this);
+        AppManager.addActivity(this);
     }
 
-    /**
-     * 点击空白位置 隐藏软键盘
-     */
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         if (null != this.getCurrentFocus()) {
@@ -69,6 +63,6 @@ public abstract class BaseExActivity extends Activity
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        AppManager.getInstances().finishActivity(this);
+        AppManager.finishActivity(this);
     }
 }

@@ -23,15 +23,15 @@ public abstract class BaseRecyclerViewAdapter extends RecyclerView.Adapter<Recyc
 
     protected Context context;
     protected List<?> data = new ArrayList<>();
-    protected BaseRecyclerViewListener.OnItemClickListener     mOnItemClickListener;
-    protected BaseRecyclerViewListener.OnItemLongClickListener mOnItemLongClickListener;
+    protected BaseRecyclerViewListener.ItemClickListener     mItemClickListener;
+    protected BaseRecyclerViewListener.ItemLongClickListener mItemLongClickListener;
 
-    public void setOnItemClickListener(BaseRecyclerViewListener.OnItemClickListener mListener) {
-        this.mOnItemClickListener = mListener;
+    public void setItemClickListener(BaseRecyclerViewListener.ItemClickListener mListener) {
+        this.mItemClickListener = mListener;
     }
 
-    public void setOnItemLongClickListener(BaseRecyclerViewListener.OnItemLongClickListener mListener) {
-        this.mOnItemLongClickListener = mListener;
+    public void setItemLongClickListener(BaseRecyclerViewListener.ItemLongClickListener mListener) {
+        this.mItemLongClickListener = mListener;
     }
 
     protected BaseRecyclerViewAdapter(Context context) {
