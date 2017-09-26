@@ -9,27 +9,27 @@
         </shape>
     </item>
     <!--<item-->
-        <!--android:bottom="5dp"-->
-        <!--android:left="5dp"-->
-        <!--android:right="5dp"-->
-        <!--android:top="5dp">-->
-        <!--<selector xmlns:android="http://schemas.android.com/apk/res/android">-->
-            <!--<item android:state_pressed="true">-->
-                <!--<shape android:shape="oval">-->
-                    <!--<solid android:color="@color/button_blue_pressed"/>-->
-                    <!--<size-->
-                        <!--android:width="95dp"-->
-                        <!--android:height="95dp"/>-->
-                <!--</shape>-->
-            <!--</item>-->
-            <!--<item>-->
-                <!--<shape android:shape="oval">-->
-                    <!--<solid android:color="@color/button_blue_normal"/>-->
-                    <!--<size-->
-                        <!--android:width="95dp"-->
-                        <!--android:height="95dp"/>-->
-                <!--</shape>-->
-            <!--</item>-->
-        <!--</selector>-->
+    <!--android:bottom="5dp"-->
+    <!--android:left="5dp"-->
+    <!--android:right="5dp"-->
+    <!--android:top="5dp">-->
+    <!--<selector xmlns:android="http://schemas.android.com/apk/res/android">-->
+    <!--<item android:state_pressed="true">-->
+    <!--<shape android:shape="oval">-->
+    <!--<solid android:color="@color/button_blue_pressed"/>-->
+    <!--<size-->
+    <!--android:width="95dp"-->
+    <!--android:height="95dp"/>-->
+    <!--</shape>-->
+    <!--</item>-->
+    <!--<item>-->
+    <!--<shape android:shape="oval">-->
+    <!--<solid android:color="@color/button_blue_normal"/>-->
+    <!--<size-->
+    <!--android:width="95dp"-->
+    <!--android:height="95dp"/>-->
+    <!--</shape>-->
+    <!--</item>-->
+    <!--</selector>-->
     <!--</item>-->
 </layer-list>

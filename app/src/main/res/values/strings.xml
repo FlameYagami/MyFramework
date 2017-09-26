@@ -9,4 +9,9 @@
     <string name="waiting">请稍后&#8230;</string>
     <string name="network_exception">无法连接到网络</string>
     <string name="service_exception">无法连接到服务器</string>
+
+    <string name="not_applicable">(N/A)</string>
+    <string name="hyphen">-</string>
+    <string name="slash">/</string>
+    <string name="empty">""</string>
 </resources>

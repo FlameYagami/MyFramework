@@ -1,16 +1,4 @@
 <resources>
-    <style name="layout_statusbar">
-        <item name="android:background">@color/colorPrimary</item>
-        <item name="android:layout_height">@dimen/statusbar_height</item>
-        <item name="android:layout_width">match_parent</item>
-    </style>
-
-    <style name="layout_shadowbar">
-        <item name="android:background">@drawable/shadow_header</item>
-        <item name="android:layout_height">2dp</item>
-        <item name="android:layout_width">match_parent</item>
-    </style>
-
     <!-- 高宽自适应-->
     <style name="layout_wrap_content">
         <item name="android:layout_height">wrap_content</item>
